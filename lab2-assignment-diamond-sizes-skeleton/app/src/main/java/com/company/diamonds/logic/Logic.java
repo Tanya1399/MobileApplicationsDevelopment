@@ -43,10 +43,79 @@ public class Logic
      * This is the method that will (eventually) get called when the
      * on-screen button labeled 'Process...' is pressed.
      */
+    public  int a (int size)
+    {
+        mOut.print("+");
+        for (int i = 1; i <= size * 2; i++) {
+            mOut.print("-");
+        }
+        mOut.print("+\n");
+        return size;
+    }
+
     public void process(int size) {
 
         // TODO -- add your code here
-
+        int str = (size * 2) - 1;
+        int stl = (size * 2) + 2;
+        a(size);
+        for (int i = 1; i <= str; i++) {
+            mOut.print("|");
+            if (i <= str - size)
+                for (int j = 0; j < size - i; j++) {
+                    mOut.print(" ");
+                }
+            else
+                for (int j = 1; j <= i-size;j++) {
+                    mOut.print(" ");
+                }
+            if (i <= str - size)
+                mOut.print("/");
+            else
+            if (i == size)
+                mOut.print("<");
+            else
+                mOut.print("\\");
+            if ( i< size ){
+                for (int j = 0; j < stl - 4 - ((size - i) * 2); j++) {
+                    if (i % 2 != 0)
+                        mOut.print("-");
+                    else
+                        mOut.print("=");
+                }
+            }
+            if ( i>=size)
+                for (int j = 0; j < stl - 4 - ((i-size)*2); j++) {
+                    if (i % 2 != 0)
+                        mOut.print("-");
+                    else
+                        mOut.print("=");
+                }
+            if (i <= str - size)
+                mOut.print("\\");
+            else
+            if (i == size)
+                mOut.print(">");
+            else
+            if (i >= str - size)
+                mOut.print("/");
+            if (i <= str - size){
+                for (int j = 0; j < size - i; j++) {
+                    mOut.print(" ");
+                }
+            }
+            else
+                for (int j = 1; j <= i-size;j++) {
+                    mOut.print(" ");
+                }
+            mOut.print("|");
+            mOut.print("\n");
+        }
+        a(size);
     }
 
 }
+
+
+
+
